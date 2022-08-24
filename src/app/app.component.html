@@ -1,6 +1,6 @@
 App component
 <div *ngFor="let student of students">
-  {{ student.id }}
+  <button (click)="delStudent(+student.id)">Del {{ student.id }}</button>
   {{ student.sName }}
   {{ student.sAge }}
 </div>

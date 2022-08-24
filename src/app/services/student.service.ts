@@ -19,4 +19,8 @@ export class StudentService {
   addStudent(newStudent: any): Observable<any> {
     return this.myServ.post<any>(this.SERVER_URL, newStudent);
   }
+
+  delStudent(id: number): Observable<any> {
+    return this.myServ.delete<any>(this.SERVER_URL + '/' + id);
+  }
 }

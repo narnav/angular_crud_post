@@ -10,12 +10,20 @@ import { StudentService } from './services/student.service';
 export class AppComponent {
   students: Student[] = [];
   n1: number = 8;
+
   constructor(private ser: StudentService) {
     ser.getStudents().subscribe((res) => (this.students = res));
   }
+
   addNewStudent() {
     this.ser
       .addStudent({ sName: 'test', sAge: 5 })
       .subscribe((res) => console.log(res));
+    this.ser.getStudents().subscribe((res) => (this.students = res));
+  }
+
+  delStudent(id: number) {
+    this.ser.delStudent(id).subscribe((res) => console.log(res));
+    this.ser.getStudents().subscribe((res) => (this.students = res));
   }
 }
